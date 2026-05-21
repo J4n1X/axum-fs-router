@@ -8,6 +8,30 @@ This crate can be used to have a filesystem router.
 
 Look at the doc comments of the macros to know what they do.
 
+## Configuration
+
+You can configure which directory is traversed by adding metadata in your `Cargo.toml`:
+
+```toml
+[package.metadata.axum-fs-router]
+routes-dir = "src/routes"
+```
+
+`routes-dir` can be any path relative to your crate root.
+
+Equivalent snake_case keys are also accepted:
+
+```toml
+[package.metadata.axum_fs_router]
+routes_dir = "src/routes"
+```
+
+Rebuild behavior:
+
+- Changes to tracked handler files are picked up automatically.
+- Changes to `Cargo.toml` are picked up automatically.
+- Newly added or removed handler files may require any normal Rust file change to trigger recompilation.
+
 ## Example
 
 Due to some issues with rust-analyzer you should put the `traverse_routes!()` call into a seperate file. This file currently needs to be at the root level of the `src` directory.

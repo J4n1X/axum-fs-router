@@ -9,6 +9,7 @@ eyre = "0.6.12"
 proc-macro2 = "1.0.106"
 quote = "1.0.44"
 syn = { version = "2.0.117", features = ["full"] }
+toml = "1.1.2+spec-1.1.0"
 
 
 [lib]
