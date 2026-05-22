@@ -33,8 +33,9 @@ impl Routes {
         let folder = folder.into();
         let mut inner = Vec::new();
 
-        let mut entries = fs::read_dir(&folder)?.collect::<Result<Vec<DirEntry>, std::io::Error>>()?;
-        entries.sort_by_key(|entry| entry.file_name());
+        let mut entries =
+            fs::read_dir(&folder)?.collect::<Result<Vec<DirEntry>, std::io::Error>>()?;
+        entries.sort_by_key(DirEntry::file_name);
 
         for entry in entries {
             let file_type = entry.file_type()?;
